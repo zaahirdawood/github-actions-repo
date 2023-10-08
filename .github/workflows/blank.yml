@@ -18,19 +18,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      -id: repo
-      name: Repo Checkout
-      uses: actions/checkout@v3
+     - id: repo
+     name: Repo Checkout
+     uses: actions/checkout@v3
       
-      -id: Python
-      name: Python Setup & Packages Installation
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        cache: 'pip' # caching pip dependencies
-      -run: pip install -r requirements.txt
+    - id: python
+    name: Python Setup & Packages Installation
+    uses: actions/setup-python@v4
+    with:
+      python-version: '3.9'
+      cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
 
-      -id: jupyter
-      name: Jupyter Notebook execution  
-      run: jupyter execute text.ipynb
+    - id: jupyter
+     name: Jupyter Notebook execution  
+     run: jupyter execute text.ipynb
       shell: bash

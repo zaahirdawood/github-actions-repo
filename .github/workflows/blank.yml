@@ -22,7 +22,7 @@ jobs:
             - run: pip install -r requirements.txt
 
             - id: jupyter
-              name: Jupyter Notebook Execuation
+              name: Jupyter Notebook Execution
               run: jupyter execute test.ipynb
               shell: bash
             

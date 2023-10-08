@@ -25,4 +25,22 @@ jobs:
               name: Jupyter Notebook Execuation
               run: jupyter execute test.ipynb
               shell: bash
+            
+            - id: commit
+              name: Commit files
+              run:
+                git config --local user.name actions-user
+
+                git config --local user.email "actions@github.com"
+
+                git add *
+
+                git commit -am "GH ACTION Headlines ${date}"
+
+                git push origin main
+              
+              env:
+                REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+
+                username: github-actions
 

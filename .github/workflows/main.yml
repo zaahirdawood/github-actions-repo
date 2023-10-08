@@ -1,0 +1,21 @@
+name: On Push Run
+
+on: push
+
+env:
+  DEVOPS_DIR: devops
+
+jobs:
+  hello-world:
+    name: Hello world
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        repository: github_actions_repo
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Hello World
+      run: python hello_world.py
+      shell: bash
